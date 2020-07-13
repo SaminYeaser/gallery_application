@@ -45,8 +45,8 @@ class _GradientTextState extends State<GradientText> with SingleTickerProviderSt
         return LinearGradient(
           stops: [_animation.value - 0.5, _animation.value],
           colors: [
-            Color(int.parse('0xFF00C9FF')),
-            Color(int.parse('0xFF92FE9D'))]
+            Color(int.parse('0xFFde6262 ')),
+            Color(int.parse('0xFFffb88c'))]
         ).createShader(rect);
       },);
   }
