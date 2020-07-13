@@ -44,9 +44,9 @@ class _GradientTextState extends State<GradientText>
   Widget build(BuildContext context) {
     return ShaderMask(
       child: Text(
-        'Zone',
+        'ZONE',
         style:
-            TextStyle(color: Colors.white, fontFamily: 'Bangers', fontSize: 35),
+            TextStyle(color: Colors.white, fontFamily: 'Anton', fontSize: 35),
       ),
       shaderCallback: (rect) {
         return LinearGradient(stops: [
