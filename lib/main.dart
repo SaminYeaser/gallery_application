@@ -13,8 +13,6 @@ class MyApp extends StatelessWidget {
       title: 'WallPaper Zone',
       theme: ThemeData(
 
-        primarySwatch: Colors.white,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),

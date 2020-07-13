@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/widgets/widgets.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,19 +11,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: <Widget>[
-            Text(
-              'Wallpaper'
-            ),
-            Text(
-              'Zone',
-              style: BoxDecoration(
-                
-              ),
-            )
-          ],
-        ),
+        title: AppName(),
       ),
     );
   }
