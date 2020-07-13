@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 Widget AppName() {
   return Row(
     children: <Widget>[
-      Text('Wallpaper'),
+      Text('Wallpaper',
+      style: TextStyle(
+        fontFamily: 'MrDafoe',
+        fontSize: 30
+      )
+        ),
       Container(
         child: GradientText(),
       )
@@ -38,7 +43,8 @@ class _GradientTextState extends State<GradientText> with SingleTickerProviderSt
       child: Text(
         'Zone',
         style: TextStyle(
-            color: Colors.white
+            color: Colors.white,
+          fontFamily: 'Bangers'
         ),
       ),
       shaderCallback: (rect){
