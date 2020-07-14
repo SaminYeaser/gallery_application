@@ -19,17 +19,27 @@ class _HomeState extends State<Home> {
       body: Container(
         child: Column(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search',
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(20),
+
+              ),
+              padding: EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search Wallpaper',
+                        border: InputBorder.none
+                      ),
                     ),
                   ),
-                ),
-                Icon(Icons.search)
-              ],
+                  Icon(Icons.search)
+                ],
+              ),
             )
           ],
         ),
