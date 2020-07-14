@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget AppName() {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Text('Wallpaper', style: TextStyle(fontFamily: 'MrDafoe', fontSize: 30)),
       SizedBox(

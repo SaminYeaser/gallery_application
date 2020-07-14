@@ -16,6 +16,24 @@ class _HomeState extends State<Home> {
         backgroundColor: Color(0xff145C9E),
         title: AppName(),
       ),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                    ),
+                  ),
+                ),
+                Icon(Icons.search)
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
