@@ -31,7 +31,11 @@ class _HomeState extends State<Home> {
     Map<String, dynamic> jsonData = jsonDecode(response.body);
     jsonData['photos'].forEach((element){
       WallpaperModel wallpaperModel = new WallpaperModel();
-      wallpaperModel = jsonData[''];
+      wallpaperModel = WallpaperModel.fromMap(element);
+      wallpaper.add(wallpaperModel);
+    });
+    setState(() {
+
     });
   }
   @override
