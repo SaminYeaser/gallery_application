@@ -7,6 +7,7 @@ import 'package:gallery/data/data.dart';
 import 'package:gallery/model/category_model.dart';
 import 'package:gallery/model/wallpaperModel.dart';
 import 'package:gallery/widgets/appBar.dart';
+import 'package:gallery/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:gallery/data/apikey.dart';
 
@@ -24,14 +25,16 @@ class _HomeState extends State<Home> {
   List<WallpaperModel> wallpaper = new List();
 
   getTrendingWallpaper() async{
-    var response = await http.get("https://api.pexels.com/v1/curated?per_page=1", headers: {
+    var response = await http.get("https://api.pexels.com/v1/curated?per_page=100", headers: {
       'Authorization': apiKey
     });
 //    print(response.body.toString());
     Map<String, dynamic> jsonData = jsonDecode(response.body);
     jsonData['photos'].forEach((element){
+      print(element);
       WallpaperModel wallpaperModel = new WallpaperModel();
       wallpaperModel = WallpaperModel.fromMap(element);
+
       wallpaper.add(wallpaperModel);
     });
     setState(() {
@@ -52,50 +55,58 @@ class _HomeState extends State<Home> {
         backgroundColor: Color(0xff145C9E),
         title: AppName(),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(20),
+      body: SingleChildScrollView(
 
-              ),
-              padding: EdgeInsets.only(left: 10, right: 10),
-              margin: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search Wallpaper',
-                        border: InputBorder.none
+        physics: ClampingScrollPhysics(),
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(20),
+
+                ),
+                padding: EdgeInsets.only(left: 10, right: 10),
+                margin: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search Wallpaper',
+                          border: InputBorder.none
+                        ),
                       ),
                     ),
-                  ),
-                  Icon(Icons.search)
-                ],
+                    Icon(Icons.search)
+                  ],
+                ),
               ),
-            ),
 //            SizedBox(
 //              height: 2,
 //            ),
-            Container(
-              height: 60,
-              child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                shrinkWrap: true,
-              itemCount: categories.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index){
-                return CategoriTile(
-                      title: categories[index].categoryName,
-                      imgURL: categories[index].imgURL,
-                );
-                  }
+              Container(
+                height: 60,
+                child: ListView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  shrinkWrap: true,
+                itemCount: categories.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                  return CategoriTile(
+                        title: categories[index].categoryName,
+                        imgURL: categories[index].imgURL,
+                  );
+                    }
+                ),
               ),
-            )
-          ],
+              SizedBox(
+                height: 8,
+              ),
+              wallpapersList(wallpaper: wallpaper, context: context)
+            ],
+          ),
         ),
       ),
     );
@@ -139,5 +150,16 @@ class CategoriTile extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+class WallpaperTile extends StatefulWidget {
+  @override
+  _WallpaperTileState createState() => _WallpaperTileState();
+}
+
+class _WallpaperTileState extends State<WallpaperTile> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
