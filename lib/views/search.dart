@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/apikey.dart';
 import 'package:gallery/model/wallpaperModel.dart';
 import 'package:gallery/widgets/appBar.dart';
+import 'package:gallery/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
 
 class Search extends StatefulWidget {
@@ -21,7 +22,9 @@ class _SearchState extends State<Search> {
 
   @override
   void initState() {
+    getSearchedWallpaper(widget.searchQuery);
     // TODO: implement initState
+    searchController.text = widget.searchQuery;
     super.initState();
   }
 
@@ -52,22 +55,41 @@ class _SearchState extends State<Search> {
         backgroundColor: Color(0xff145C9E),
         title: AppName(),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: TextField(
-                controller: searchController,
-                decoration: InputDecoration(
-                    hintText: 'Search Wallpaper', border: InputBorder.none),
-              ),
-            ),
-            InkWell(
-                onTap: () {
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(20),
 
-                },
-                child: Container(child: Icon(Icons.search)))
-          ],
+                ),
+                padding: EdgeInsets.only(left: 10, right: 10),
+                margin: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: InputDecoration(
+                            hintText: 'Search Wallpaper',
+                            border: InputBorder.none
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                        onTap: (){
+
+                        },
+                        child: Container(
+                            child: Icon(Icons.search)))
+                  ],
+                ),
+              ),
+              wallpapersList(wallpaper: wallpaper, context: context)
+            ],
+          ),
         ),
       ),
     );

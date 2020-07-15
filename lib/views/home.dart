@@ -164,14 +164,3 @@ class CategoriTile extends StatelessWidget {
     );
   }
 }
-class WallpaperTile extends StatefulWidget {
-  @override
-  _WallpaperTileState createState() => _WallpaperTileState();
-}
-
-class _WallpaperTileState extends State<WallpaperTile> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
