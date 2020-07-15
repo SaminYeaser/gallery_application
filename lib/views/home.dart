@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/data.dart';
 import 'package:gallery/model/category_model.dart';
 import 'package:gallery/widgets/appBar.dart';
+import 'package:http/http.dart' as http;
+import 'package:gallery/data/apikey.dart';
+
 
 class Home extends StatefulWidget {
 
@@ -15,6 +18,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<CategoryModel> categories = new List();
+
+
+  getTrendingWallpaper(){
+    var response = http.get("https://api.pexels.com/v1/curated?per_page=1", headers: {
+      'Authorization': apiKey
+    });
+  }
   @override
   void initState() {
     categories = getCategories();
