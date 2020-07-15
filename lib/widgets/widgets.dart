@@ -15,7 +15,12 @@ Widget wallpapersList({List<WallpaperModel> wallpaper, context}) {
       children: wallpaper.map((wallpaper) {
         return GridTile(
           child: Container(
-              child: Image.network(wallpaper.src.portrait)),
+              child: ClipRRect(
+                  child: Image.network(
+                    wallpaper.src.portrait, 
+                    fit: BoxFit.cover,),
+                borderRadius: BorderRadius.circular(10),
+              )),
         );
       }).toList(),
     ),
