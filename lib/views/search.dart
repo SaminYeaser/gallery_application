@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/widgets/appBar.dart';
 
 class Search extends StatefulWidget {
  final String searchQuery;
@@ -16,7 +17,18 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Color(0xff145C9E),
+        title: AppName(),
+      ),
+      body: Container(
+        child: Column(
+          children: <Widget>[
 
+          ],
+        ),
+      ),
     );
   }
 }
