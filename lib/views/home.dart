@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:gallery/views/category.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -131,35 +131,44 @@ class CategoriTile extends StatelessWidget {
   const CategoriTile({Key key, @required this.imgURL,@required this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 6),
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-              child: Image.network(
-                imgURL,
-                height: 60,
-                width: 100,
-                fit: BoxFit.cover,
-              ),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: Colors.black26,
-            ),
-
-            height: 60, width: 100,
-            alignment: Alignment.center,
-            child: Text(
-              title,
-              style: TextStyle(
-                color: Colors.white
-              ),
-            ),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context)=> Categories(
+           categoryName: title.toLowerCase()
           )
-        ],
+        ));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 6),
+        child: Stack(
+          children: <Widget>[
+            ClipRRect(
+                child: Image.network(
+                  imgURL,
+                  height: 60,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Colors.black26,
+              ),
+
+              height: 60, width: 100,
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
