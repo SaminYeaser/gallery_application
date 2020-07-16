@@ -35,7 +35,7 @@ class _SearchState extends State<Search> {
 //    print(response.body.toString());
     Map<String, dynamic> jsonData = jsonDecode(response.body);
     jsonData['photos'].forEach((element){
-      print(element);
+//      print(element);
       WallpaperModel wallpaperModel = new WallpaperModel();
       wallpaperModel = WallpaperModel.fromMap(element);
 
@@ -80,7 +80,7 @@ class _SearchState extends State<Search> {
                     ),
                     InkWell(
                         onTap: (){
-
+                            getSearchedWallpaper(widget.searchQuery);
                         },
                         child: Container(
                             child: Icon(Icons.search)))
