@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/apikey.dart';
 import 'package:gallery/model/wallpaperModel.dart';
 import 'package:gallery/widgets/appBar.dart';
+import 'package:gallery/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
 class Category extends StatefulWidget {
   final String categoryName;
@@ -55,6 +56,15 @@ class _CategoryState extends State<Category> {
         )
       ],
     ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              wallpapersList(wallpaper: wallpaper, context: context)
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
