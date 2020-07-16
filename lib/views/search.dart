@@ -54,6 +54,13 @@ class _SearchState extends State<Search> {
         centerTitle: true,
         backgroundColor: Color(0xff145C9E),
         title: AppName(),
+        actions: <Widget>[
+          Container(
+            child: Icon(Icons.add),
+            alignment: Alignment.centerRight,
+            color: Colors.black26.withOpacity(0.0),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -80,7 +87,7 @@ class _SearchState extends State<Search> {
                     ),
                     InkWell(
                         onTap: (){
-                            getSearchedWallpaper(widget.searchQuery);
+                            getSearchedWallpaper(searchController.text);
                         },
                         child: Container(
                             child: Icon(Icons.search)))

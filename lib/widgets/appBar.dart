@@ -15,6 +15,15 @@ Widget AppName() {
   );
 }
 
+
+
+
+
+
+
+
+
+
 class GradientText extends StatefulWidget {
   const GradientText({
     Key key,
