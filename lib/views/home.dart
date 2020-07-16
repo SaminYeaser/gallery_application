@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/data.dart';
 import 'package:gallery/model/category_model.dart';
 import 'package:gallery/model/wallpaperModel.dart';
+import 'package:gallery/views/image_view.dart';
 import 'package:gallery/views/search.dart';
 import 'package:gallery/widgets/appBar.dart';
 import 'package:gallery/widgets/widgets.dart';
