@@ -136,6 +136,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
     final result =
     await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
     print(result);
+    Navigator.pop(context);
   }
 
 
