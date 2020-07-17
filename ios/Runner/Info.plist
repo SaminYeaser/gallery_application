@@ -12,6 +12,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>gallery</string>
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Must to save in the gallery</string>
+
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
